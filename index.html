@@ -98,7 +98,7 @@
     background-color: #2c2c2c;
     border-radius: 10px;
     padding: 15px;
-    width: 25%;
+    width: 40%;
     max-width: 250px;
     position: relative;
     display: block;
@@ -169,16 +169,43 @@ a {
 .li{
   margin-top: 5px;
 }
+#team{
+  margin-left: 40%;
+  margin-right: 40%;
+}
+#team p{
+  background-color: rgb(0, 0, 0, 0);
+  transition: background-color 0.3s ease-out
+}
+#team p:hover{
+  background-color: #3b82f6
+}
+#hhhhh{
+  margin-left: 20%;
+  margin-right: 20%;
+}
 @media screen and (max-width: 1200px) {
     .collab-item {
-        width: 30%;
+      width: 40%;
     }
 }
 
 @media screen and (max-width: 768px) {
     .collab-item {
-        width: 45%;
+      width: 25%;
     }
+    .play-pause-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
 }
 
 @media screen and (max-width: 480px) {
@@ -209,8 +236,15 @@ a {
   </section>
   <div class="sep"></div>
 
+  <section class="section" id="hhhhh">
+    <h2>Overview</h2><br>
+    <p>Earlier this year, Syndicate, the organizer of the first Virtual Riot pack, asked Avexus to take the reins and organize VR Pack Vol 2 in their absence. And what better time to do it than just after VR dropped this total bombshell of an album, Stealing Fire!</p>
+    <br><p>Packed full with mappers you love, lightshows thatll have you loosing that SS, and with handpicked songs this pack really brings out what VR has done since the last pack.</p>
+  </section>
+
   <section class="section" id="listen">
-    <h2>Listen to the Pack</h2>
+    <h2>Listen to the Pack</h2><br>
+    <p>Broken atm but you can still listen if you click the title!</p>
     <div class="divlist"><div id="collab-list" class="collab-list"></div></div>
   </section>
 
@@ -236,7 +270,6 @@ a {
 
     <h4>Mappers</h4>
     <p class="li">⚬ Avexus</p>
-    <p class="li">⚬ AndrewFCC</p>
     <p class="li">⚬ Bytrius</p>
     <p class="li">⚬ Spinvvy</p>
     <p class="li">⚬ EerieWolf</p>
@@ -244,11 +277,17 @@ a {
     <p class="li">⚬ Nitronik</p>
     <p class="li">⚬ TaylorGaming</p>
     <p class="li">⚬ steeak</p>
+    <p class="li">⚬ Drakrealm7</p>
+    <p class="li">⚬ Rexxz</p>
+    <p class="li">⚬ DirtyAlex</p>
+    <p class="li">⚬ Crystal Sirens</p>
+    <p class="li">⚬ CMP1111</p>
     <br>
 
     <h4>Lighters</h4>
     <p class="li">⚬ AndrewFCC</p>
     <p class="li">⚬ Rxerti</p>
+    <p class="li">⚬ THMX</p>
   </section>
   <div class="sep"></div>
 
@@ -262,8 +301,8 @@ a {
 CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 */
 
-const clientId = "c1fa42a799fb45bbbeb59c08944142c2";
-const clientSecret = "92a4e5f2636f4adf805076b35cfb9a57";
+const clientId = "a8d951c9a7764fd0ba2ad2ceda8d8404";
+const clientSecret = "20370fd02d354342a0eb1e0be697b0f3";
 const tokenUrl = "https://accounts.spotify.com/api/token";
 const apiUrl = "https://api.spotify.com/v1/tracks/";
 
@@ -296,10 +335,6 @@ async function fetchTrackData(trackId) {
 // Create a collab item (song) to display
 function createCollabItem(track, statuses, genres) {
     // Check if track has a valid preview URL, album image, and artist data
-    if (!track || !track.preview_url || !track.album || !track.album.images || !track.album.images[0] || !track.artists) {
-        console.warn(`Skipping track with no preview: ${track ? track.id : 'unknown track'}`);
-        return null; // Return null to skip track without preview
-    }
 
     const item = document.createElement('div');
     item.className = 'collab-item';
@@ -406,7 +441,11 @@ const trackIds = [
     { id: '6SAYyzfj00qgS35oY5t6w7'},
     { id: '4C9tqpw6WWtQ2CGXUvxbS1'},
     { id: '7xiOCdvjjZ1t4NZk3SjEwN'},
-    { id: '0TPF2GBCH08gLC40qvDjvD'}
+    { id: '6sGtFDSyc1C7IzAfAZCZuk'},
+    { id: '4Pce2ckmqwKLciLxf4bX8d'},
+    { id: '01lDnsfMfrB2fHq9lzL7Y4'},
+    { id: '1bfd4Zzu6Dh7o6cRwMVNyS'},
+    { id: '7t2IzwJEKWj3Rasgb37kaa'}
 ];
 
 
